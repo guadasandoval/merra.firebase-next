@@ -68,7 +68,7 @@ const Gallery = ({ files }) => {
       <Flex gap={3} flexWrap={'wrap'}>
         {files?.map((data, index) => (
           <Flex
-            key={data?.name || index}
+            key={`${data?.name}-${index}`}
             flexGrow={1}
             flexShrink={0}
             flexBasis={itemSize(data)}
@@ -104,7 +104,7 @@ const Gallery = ({ files }) => {
         >
           <ModalBody pos={'relative'} overflow={'hidden'}>
             {files?.map((file, index) => (
-              <Fade in={index === galleryIndex} key={file?.name || index}>
+              <Fade in={index === galleryIndex} key={`${file?.name}-${index}`}>
                 <Flex
                   pos={'absolute'}
                   inset={0}
