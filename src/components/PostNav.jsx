@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Flex } from '@chakra-ui/react';
 import { Admin } from 'src/contexts/AdminContext';
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 
 const PostNav = ({ doc }) => {
@@ -18,23 +17,13 @@ const PostNav = ({ doc }) => {
   }
 
   return (
-    <Flex flexDirection={'row'} gap={3}>
-      <Button
-        size='sm'
-        colorScheme='black'
-        borderRadius={'md'}
-        variant='outline'
-        leftIcon={<EditIcon />}
-        onClick={onEdit}
-      >
+    <Flex flexDirection={'row'} gap={6}>
+      <Button colorScheme='black' variant='link' onClick={onEdit}>
         Editar
       </Button>
       <Button
-        size='sm'
         colorScheme='black'
-        borderRadius={'md'}
-        variant='outline'
-        leftIcon={<DeleteIcon />}
+        variant='link'
         onClick={() => onDeletePost(doc)}
       >
         Eliminar

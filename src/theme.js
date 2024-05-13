@@ -64,7 +64,7 @@ const theme = extendTheme(
       },
       a: {
         textDecoration: 'underline',
-        color: 'brand.500',
+        fontWeight: 'bold',
         _hover: {
           fontStyle: 'italic',
         },

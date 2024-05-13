@@ -1,32 +1,15 @@
 import React from 'react';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  Flex,
-  Icon,
-  Text,
-} from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
 const Tags = ({ tags = [], ...rest }) => {
   if (!tags?.length) {
     return null;
   }
   return (
-    <Flex
-      direction={'row'}
-      flexWrap={'wrap'}
-      justifyContent={'center'}
-      gap={1}
-      {...rest}
-    >
-      <Text as={'span'} fontSize={'md'} fontWeight={'bold'} color='brand.500'>
-        tags:
-      </Text>
-      {tags.map((tag) => (
-        <Text as={'span'} fontSize={'md'} key={tag}>
-          {tag}
+    <Flex direction={'row'} flexWrap={'wrap'} gap={1} {...rest}>
+      {tags.map((tag, index) => (
+        <Text as={'span'} fontSize={'md'} fontWeight={'bold'} key={tag}>
+          {`${tag}${index < tags.length - 1 ? ',' : ''}`}
         </Text>
       ))}
     </Flex>

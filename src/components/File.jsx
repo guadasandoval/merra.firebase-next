@@ -8,7 +8,6 @@ const File = ({ data, onClick, ...rest }) => {
       src={url}
       alt={name}
       objectFit={'contain'}
-      // borderRadius={'lg'}
       maxHeight={'100%'}
       onClick={onClick}
       {...rest}
