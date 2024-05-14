@@ -57,10 +57,12 @@ const AdminContext = ({ children }) => {
     }
   });
   const signIn = async () => {
-    await createNotification(() => signInWithPopup(auth, provider), 'SignIn');
+    await createNotification(() => signInWithPopup(auth, provider), 'Hola!');
+    router.push('/');
   };
   const signOut = async () => {
-    await createNotification(() => signOutFirebase(auth), 'SignOut');
+    await createNotification(() => signOutFirebase(auth), 'Chau!');
+    router.push('/');
   };
 
   // Post

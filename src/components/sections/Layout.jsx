@@ -1,13 +1,14 @@
-import { Avatar, Box, Flex, Grid, Link, Text } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Grid, IconButton, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { Admin } from 'src/contexts/AdminContext';
+import { AddIcon } from '@chakra-ui/icons';
 
 const Layout = ({ children }) => {
   const { user, signIn, signOut } = useContext(Admin);
   const { photoURL } = user || {};
-  const { route } = useRouter();
+  const { route, push } = useRouter();
 
   const getRightOption = (r) => {
     if (r.includes('login')) {
@@ -22,22 +23,12 @@ const Layout = ({ children }) => {
       );
     } else if (user && !r.includes('new')) {
       return (
-        <NextLink href={'/admin/new'} passHref>
-          <Link
-            as={'span'}
-            textTransform={'uppercase'}
-            fontFamily={'Poppins'}
-            fontWeight={'bold'}
-            marginLeft={'auto'}
-            textDecoration={'none'}
-            letterSpacing={'0.05rem'}
-            _hover={{
-              textDecoration: 'none',
-            }}
-          >
-            Nuevo
-          </Link>
-        </NextLink>
+        <IconButton
+          variant='link'
+          onClick={() => push('/admin/new')}
+          icon={<AddIcon color={'black'} />}
+          justifySelf={'flex-end'}
+        />
       );
     } else if (user && r.includes('new')) {
       return (
@@ -65,20 +56,7 @@ const Layout = ({ children }) => {
         top={0}
         p={3}
       >
-        <Text
-          as={'span'}
-          fontFamily={'Poppins'}
-          fontWeight={'bold'}
-          textTransform={'uppercase'}
-          textDecoration={'none'}
-          letterSpacing={'0.05rem'}
-          marginRight={'auto'}
-          _hover={{
-            textDecoration: 'none',
-          }}
-        >
-          Menu
-        </Text>
+        <Box />
         <Box mx={'auto'}>
           <NextLink href={'/'} passHref>
             <Link
