@@ -17,7 +17,7 @@ function Edit() {
 
   return (
     <Flex mx={'auto'} maxW={'1300px'} direction={'column'}>
-      <NextSeo title={`Editar | Merra Marie`} defaultTitle='Merra Marie' />
+      <NextSeo title={`Editar | Maria Muchut`} defaultTitle='Maria Muchut' />
       <Box as={'header'} mb={[6, 12]}>
         <Title>Editar</Title>
       </Box>

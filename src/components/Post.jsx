@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import React from 'react';
 import File from './File';
 
+// visualizacion de cada posteo en galeria
 const Post = ({ data }) => {
   const {
     title = '',
@@ -18,12 +19,13 @@ const Post = ({ data }) => {
   return (
     <LinkOverlay as={NextLink} href={url}>
       <Flex flexDirection={'column'}>
-        <AspectRatio ratio={89 / 127} overflow={'hidden'}>
+        <AspectRatio ratio={9/16} overflow={'hidden'}>
           <File
             cursor={'pointer'}
             data={postFilePreview}
             controls={false}
             maxWidth='100%'
+            borderRadius='10px'
             height='auto'
             transition='transform .2s'
             _hover={{
@@ -34,7 +36,7 @@ const Post = ({ data }) => {
         <Text
           mt={2}
           mb={5}
-          fontFamily={'Poppins'}
+          fontFamily={'made-Medium'}
           fontWeight={'bold'}
           cursor={'pointer'}
         >

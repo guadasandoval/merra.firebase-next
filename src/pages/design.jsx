@@ -1,5 +1,4 @@
 import React from 'react';
-import { Flex } from '@chakra-ui/react';
 import getSection from 'src/actions/getSection';
 import GroupedPosts from 'src/components/sections/GroupedPosts';
 import { NextSeo } from 'next-seo';

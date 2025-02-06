@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'made-Black';
+    src: url('/fonts/MADEINFINITYBesidePersonalUse-Black.otf') format('opentype');
+    font-weight: 800;
+    font-style: black;
+}
+
+@font-face {
+    font-family: 'made-Medium';
+    src: url('/fonts/MADEINFINITYBesidePersonalUse-Medium.otf') format('opentype');
+    font-weight: 600;
+}

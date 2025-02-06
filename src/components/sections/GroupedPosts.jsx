@@ -1,14 +1,15 @@
-import { SimpleGrid } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 import React from 'react';
 import Post from '../Post';
 
+//visualizacion de all posteos
 const GroupedPosts = ({ posts }) => {
   if (!posts?.length) {
     return null;
   }
 
   return (
-    <SimpleGrid gap={1} columns={[2, 3, 4]}>
+      <SimpleGrid gap={16} columns={2} p={24}>
       {posts?.map((data, index) => (
         <Post key={data?.name || index} data={data} />
       ))}

@@ -13,8 +13,8 @@ const TitleView = ({ doc }) => {
   return (
     <Flex mx={'auto'} maxW={'1300px'} direction={'column'}>
       <NextSeo
-        title={`${doc.title} | Merra Marie`}
-        defaultTitle='Merra Marie'
+        title={`${doc.title} | Maria Muchut`}
+        defaultTitle='Maria Muchut'
       />
       <Flex direction={'column'} as={'header'} mb={[6, 12]} gap={6}>
         <Title>{doc.title}</Title>
@@ -25,6 +25,8 @@ const TitleView = ({ doc }) => {
       </Box>
       <Box maxW={['100%', null, '80vw', '70%']}>
         <TextParse text={doc?.description} />
+      </Box>
+      <Box>
       </Box>
       <Tags tags={doc?.tags} />
     </Flex>

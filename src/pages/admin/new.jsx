@@ -11,7 +11,7 @@ function NewItem() {
 
   return (
     <Flex maxW={'1300px'} direction={'column'}>
-      <NextSeo title={`Nuevo | Merra Marie`} defaultTitle='Merra Marie' />
+      <NextSeo title={`Nuevo | Maria Muchut`} defaultTitle='Maria Muchut' />
       <Box as={'header'} mb={[6, 12]}>
         <Title>Nuevo</Title>
       </Box>

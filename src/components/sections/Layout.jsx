@@ -1,85 +1,187 @@
-import { Avatar, Box, Flex, Grid, IconButton, Link } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
-import React, { useContext } from 'react';
+import { Box, Grid, GridItem, VStack, Link, Text, IconButton } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { useState, useContext } from "react";
 import { Admin } from 'src/contexts/AdminContext';
-import { AddIcon } from '@chakra-ui/icons';
+
 
 const Layout = ({ children }) => {
   const { user, signIn, signOut } = useContext(Admin);
   const { photoURL } = user || {};
-  const { route, push } = useRouter();
+  const { route, push, pathname } = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const getRightOption = (r) => {
-    if (r.includes('login')) {
-      return (
-        <Avatar
-          ml={'auto'}
-          size='xs'
-          src={photoURL}
-          onClick={user ? signOut : signIn}
-          cursor={'pointer'}
-        />
-      );
-    } else if (user && !r.includes('new')) {
-      return (
-        <IconButton
-          variant='link'
-          onClick={() => push('/admin/new')}
-          icon={<AddIcon color={'black'} />}
-          justifySelf={'flex-end'}
-        />
-      );
-    } else if (user && r.includes('new')) {
-      return (
-        <Avatar
-          ml={'auto'}
-          size='xs'
-          src={photoURL}
-          onClick={user ? signOut : signIn}
-          cursor={'pointer'}
-        />
-      );
-    } else {
-      return undefined;
-    }
+  const setIsMenuOpen = () => {
+    setIsOpen(!isOpen);
   };
 
+  const routeTitles = {
+    "/": "Home",
+    "/design": "Design",
+    "/photo": "Photo",
+    "/video": "Video",
+    "/art": "Art",
+    "/writing": "Writing",
+    "/about": "About",
+  };
+
+  const currentTitle = routeTitles[pathname] || "Maria Muchut";
+
+  const getRightOption = (r) => {
+        if (r.includes('login')) {
+          return (
+            <Avatar
+              ml={'auto'}
+              size='xs'
+              src={photoURL}
+              onClick={user ? signOut : signIn}
+              cursor={'pointer'}
+            />
+          );
+        } else if (user && !r.includes('new')) {
+          return (
+            <IconButton
+              variant='link'
+              onClick={() => push('/admin/new')}
+              icon={<AddIcon color={'black'} />}
+              justifySelf={'flex-end'}
+            />
+          );
+        } else if (user && r.includes('new')) {
+          return (
+            <Avatar
+              ml={'auto'}
+              size='xs'
+              src={photoURL}
+              onClick={user ? signOut : signIn}
+              cursor={'pointer'}
+            />
+          );
+        } else {
+          return undefined;
+        }
+      };
+
   return (
-    <Box>
-      <Grid
-        templateColumns={'1fr 2fr 1fr'}
-        as={'header'}
-        position={'sticky'}
-        width={'100%'}
-        zIndex={'sticky'}
-        top={0}
-        p={3}
+    <Grid
+      templateRows={{ base: "auto 1fr", md: "1fr" }}
+      templateColumns={{ base: "1fr", md: "300px 1fr" }}
+      h="100vh"
+    >
+      {/* Header en mobile */}
+      <GridItem
+        as="header"
+        bg="pink.950"
+        paddingY={16}
+        paddingX={6}
+        h='80px'
+        display={{ base: "flex", md: "none" }}
+        alignItems="center"
+        justifyContent="space-between"
+        borderBottomWidth="6px"
+        borderBottomColor="#B9BBEE"
       >
-        <Box />
-        <Box mx={'auto'}>
-          <NextLink href={'/'} passHref>
-            <Link
-              as={'span'}
-              textTransform={'uppercase'}
-              fontFamily={'Poppins'}
-              fontWeight={'bold'}
-              textDecoration={'none'}
-              letterSpacing={'0.05rem'}
-              _hover={{
-                textDecoration: 'none',
-              }}
-            >
-              MerraMarie
-            </Link>
-          </NextLink>
+        <Text fontFamily="custom" fontSize="4xl">
+          {currentTitle}
+        </Text>
+        <IconButton
+          aria-label="Menu"
+          icon={<HamburgerIcon />}
+          display={{ base: "block", md: "none" }}
+          onClick={() => setIsMenuOpen(!isOpen)} // Toggle del menú
+        />
+      </GridItem>
+
+      {/* Menú hamburguesa */}
+      {isOpen && (
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          bg="pink.950"
+          zIndex={10}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <VStack width="100%" maxW="128px" spacing='24px'>
+            {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
+              (section) => (
+                <NextLink key={section} href={`/${section.toLowerCase()}`} passHref>
+                  <Link
+                    padding= '6px 10px'
+                    width="100%"
+                    textAlign='center'
+                    fontFamily="made-Medium"
+                    fontSize="2xl"
+                    color="black"
+                    borderWidth="1px"
+                    borderRadius="32px"
+                    borderColor="black"
+                    _hover={{ textDecoration: "none" }}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {section}
+                  </Link>
+                </NextLink>
+              )
+            )}
+          </VStack>
         </Box>
-        {getRightOption(route)}
-      </Grid>
-      <Flex direction={'column'} m={3}>
+      )}
+
+      {/* Sidebar en desktop */}
+      <GridItem
+        as="nav"
+        bg="pink.950"
+        p={4}
+        display={{ base: "none", md: "flex" }}
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        borderRightWidth="6px"
+        borderRightColor="#B9BBEE"
+      >
+        <VStack spacing={4} width="100%" maxW="180px">
+        <Text fontFamily="custom" fontSize="6xl" mb={24} lineHeight='shorter' textAlign='center'>
+          {currentTitle}
+         </Text>
+          {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
+            (section) => (
+              <NextLink key={section} href={`/${section.toLowerCase()}`} passHref>
+                <Link
+                  p={4}
+                  width="100%"
+                  fontFamily="made-Medium"
+                  borderWidth="1px"
+                  borderRadius="32px"
+                  borderColor="black"
+                  bg="transparent"
+                  textAlign="center"
+                  _hover={{ bg: "brand.950" }}
+                >
+                  {section}
+                </Link>
+              </NextLink>
+            )
+          )}
+        </VStack>
+      </GridItem>
+
+      {/* Contenido de componente */}
+      <GridItem
+        as="main"
+        bg="brand.25"
+        p={4}
+        overflowY="auto"
+      >
         {children}
-      </Flex>
-    </Box>
+      </GridItem>
+    </Grid>
   );
 };
 

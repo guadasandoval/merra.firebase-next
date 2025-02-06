@@ -14,6 +14,8 @@ import AdminContext from '../contexts/AdminContext';
 import theme from '../theme';
 import { useBoolean } from '@chakra-ui/react';
 import Layout from 'src/components/sections/Layout';
+import HomeLayout from 'src/components/sections/HomeLayout';
+import "../styles/fonts.css";
 
 const heartKeyFrames = keyframes`
     0% {
@@ -41,7 +43,9 @@ const animation = `${heartKeyFrames}  1.2s infinite cubic-bezier(0.215, 0.61, 0.
 function MyApp({ Component, pageProps }) {
   const [loading, { on, off }] = useBoolean(false);
   const { events } = useRouter();
-
+  const router = useRouter();
+  const isHome = router.pathname === "/";
+  
   useEffect(() => {
     events.on('routeChangeStart', on);
     events.on('routeChangeComplete', off);
@@ -65,11 +69,16 @@ function MyApp({ Component, pageProps }) {
             />
           </Center>
         ) : (
+          isHome ? (
+            <HomeLayout>
+              <Component {...pageProps} />
+            </HomeLayout>
+          ) : (
           <Layout>
             <Component {...pageProps} />
-          </Layout>
+          </Layout>)
         )}
-      </AdminContext>
+      </AdminContext>  
     </ChakraProvider>
   );
 }

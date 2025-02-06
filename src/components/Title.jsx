@@ -5,13 +5,13 @@ import { useTheme } from '@chakra-ui/react';
 const Title = forwardRef(function Title({ children, color, ...rest }, ref) {
   const {
     colors: {
-      brand: { 500: brand },
+      brand: { 'black': brand },
     },
   } = useTheme();
   return (
     <Heading
       ref={ref}
-      fontSize={'4xl'}
+      fontSize={{ base: "36px", md: "64px" }}
       fontWeight={'bold'}
       textTransform={'capitalize'}
       letterSpacing={1}

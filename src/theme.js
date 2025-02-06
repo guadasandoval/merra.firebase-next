@@ -4,8 +4,10 @@ import { withProse } from '@nikolovlazar/chakra-ui-prose';
 const theme = extendTheme(
   {
     fonts: {
-      heading: 'Poppins, sans-serif',
+      heading: 'made-Black, sans-serif',
       body: 'Open Sans, sans-serif',
+      custom: 'made-Black, sans-serif',
+      buttomCustom: 'made-Medium, sans-serif',
     },
     colors: {
       pink: {
@@ -19,8 +21,10 @@ const theme = extendTheme(
         700: '#752424',
         800: '#4E1818',
         900: '#270C0C',
+        950: '#F3AFAF'
       },
       brand: {
+        25: '#F5F3D9',
         50: '#FAEAEA',
         100: '#F2C4C4',
         200: '#EA9F9F',
@@ -31,6 +35,7 @@ const theme = extendTheme(
         700: '#7E1B1B',
         800: '#541212',
         900: '#2A0909',
+        950: '#E9E5BD',
       },
       green: {
         50: '#EFF9EC',
