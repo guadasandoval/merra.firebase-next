@@ -6,6 +6,8 @@ import {
   ModalBody,
   Fade,
   useDisclosure,
+  Box,
+  AspectRatio
 } from '@chakra-ui/react';
 import File from './File';
 import useTouchDirection from 'src/hooks/useTouchDirection';
@@ -45,7 +47,7 @@ const Gallery = ({ files }) => {
   );
 
   const itemSize = ({ isVideo, landscape }) => {
-    const size = isVideo || landscape ? '100%' : '40%';
+    const size = isVideo || landscape ? '100%' : '30%';
     return size;
   };
 
@@ -65,16 +67,17 @@ const Gallery = ({ files }) => {
 
   return (
     <>
-      <Flex gap={3} flexWrap={'wrap'}>
+      {/* <Flex gap={3} flexWrap={'wrap'}>
         {files?.map((data, index) => (
           <Flex
             key={`${data?.name}-${index}`}
             flexGrow={1}
             flexShrink={0}
-            flexBasis={itemSize(data)}
-            justifyContent={'center'}
-            alignContent={'flex-start'}
-            alignItems={'flex-start'}
+            // flexBasis={itemSize(data)}
+            // justifyContent={'start'}
+            // alignContent={'flex-start'}
+            // alignItems={'flex-start'}
+            bg='pink'
           >
             <File
               data={data}
@@ -83,7 +86,36 @@ const Gallery = ({ files }) => {
             />
           </Flex>
         ))}
-      </Flex>
+      </Flex> */}
+
+<Flex>
+  <Box
+    display="grid"
+    gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+    gap={3}
+    width="100%"
+  >
+    {files?.map((data, index) => (
+      <AspectRatio key={`${data?.name}-${index}`} ratio={3 / 4}>
+        <Box
+          overflow="hidden"
+          borderRadius="10px"
+          position="relative"
+        >
+          <File
+            data={data}
+            cursor="pointer"
+            onClick={() => openGallery(index)}
+            width="100%"
+            height="100%"
+            objectFit="cover"
+          />
+        </Box>
+      </AspectRatio>
+    ))}
+  </Box>
+</Flex>
+
       <Modal
         isOpen={isOpen}
         onClose={onToggle}

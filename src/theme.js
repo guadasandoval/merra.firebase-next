@@ -5,7 +5,7 @@ const theme = extendTheme(
   {
     fonts: {
       heading: 'made-Black, sans-serif',
-      body: 'Open Sans, sans-serif',
+      body: 'SF-Pro-Text, sans-serif',
       custom: 'made-Black, sans-serif',
       buttomCustom: 'made-Medium, sans-serif',
     },
