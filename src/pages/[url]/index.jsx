@@ -8,6 +8,7 @@ import Tags from 'src/components/Tags';
 import PostNav from 'src/components/PostNav';
 import Title from 'src/components/Title';
 import { Box, Flex } from '@chakra-ui/layout';
+import { Button, VStack } from '@chakra-ui/react';
 
 const TitleView = ({ doc }) => {
   return (
@@ -17,6 +18,7 @@ const TitleView = ({ doc }) => {
         defaultTitle='Maria Muchut'
       />
       <Flex direction={'column'} as={'header'} mb={[6, 12]} gap={6}>
+        
         <Title>{doc.title}</Title>
         <PostNav doc={doc} />
       </Flex>
@@ -26,8 +28,60 @@ const TitleView = ({ doc }) => {
       <Box maxW={['100%', null, '80vw', '70%']}>
         <TextParse text={doc?.description} />
       </Box>
-      <Box>
-      </Box>
+      <Box
+      display="flex"
+      flexDirection={{ base: "column", md: "row" }}
+      justifyContent={{ base: "center", md: "start" }}
+      alignItems="center"
+      gap={4}
+      p={4}
+      width="100%"
+    >
+      <Flex gap={4} width={{ base: "60%", md: "35%" }}
+      flexDirection={{ base: "column", md: "row" }}>
+      <Button
+        rightIcon={ 
+        <img
+          src="/share.svg"
+          style={{ width: "20px", height: "20px" }}
+        />}
+        colorScheme="black"
+        variant="outline"
+        borderRadius="full"
+        bg='#B9BBEE'
+        w='100%'
+      >
+        Share
+      </Button>
+      <Button
+        rightIcon={ 
+        <img
+          src="/mail.svg"
+          style={{ width: "20px", height: "20px" }}
+        />}
+        colorScheme="black"
+        variant="outline"
+        borderRadius="full"
+        bg='#B9BBEE'
+        w='100%'
+      >
+        Contact
+      </Button>
+      <Button
+        rightIcon={<img
+          src="/arrow.svg"
+          style={{ width: "20px", height: "20px" }}
+        />}
+        colorScheme="black"
+        variant="outline"
+        borderRadius="full"
+        bg='#B9BBEE'
+        w='100%'
+      >
+        Next
+      </Button>
+      </Flex>
+    </Box>
       <Tags tags={doc?.tags} />
     </Flex>
   );

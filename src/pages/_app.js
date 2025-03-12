@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
       <CSSReset />
       <AdminContext>
         {loading ? (
-          <Center w={'100vw'} h={'100vh'}>
+          <Center w={'100vw'} h={'100vh'} background='brand.25'>
             <Img
               src='/heart.svg'
               w={'20%'}

@@ -15,9 +15,10 @@ const Title = forwardRef(function Title({ children, color, ...rest }, ref) {
       fontWeight={'bold'}
       textTransform={'capitalize'}
       letterSpacing={1}
-      lineHeight={'80%'}
+      //lineHeight={'80%'}
       color={color || brand}
       {...rest}
+      marginTop={{ base: "0px", md: "56px" }}
     >
       {children}
     </Heading>

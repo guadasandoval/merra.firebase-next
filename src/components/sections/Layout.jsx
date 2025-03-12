@@ -73,7 +73,7 @@ const Layout = ({ children }) => {
       <GridItem
         as="header"
         bg="pink.950"
-        paddingY={16}
+        paddingY={12}
         paddingX={6}
         h='80px'
         display={{ base: "flex", md: "none" }}
@@ -87,7 +87,11 @@ const Layout = ({ children }) => {
         </Text>
         <IconButton
           aria-label="Menu"
-          icon={<HamburgerIcon />}
+          bg='none'
+          icon={<img
+            src="/menumobile.svg"
+            style={{ width: "20px", height: "20px" }}
+          />}
           display={{ base: "block", md: "none" }}
           onClick={() => setIsMenuOpen(!isOpen)} // Toggle del menú
         />
@@ -108,12 +112,12 @@ const Layout = ({ children }) => {
           alignItems="center"
           justifyContent="center"
         >
-          <VStack width="100%" maxW="128px" spacing='24px'>
+          <VStack width="100%" maxW="168px" spacing='24px'>
             {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
               (section) => (
                 <NextLink key={section} href={`/${section.toLowerCase()}`} passHref>
                   <Link
-                    padding= '6px 10px'
+                    padding= '16px 10px'
                     width="100%"
                     textAlign='center'
                     fontFamily="made-Medium"
@@ -147,7 +151,7 @@ const Layout = ({ children }) => {
         borderRightColor="#B9BBEE"
       >
         <VStack spacing={4} width="100%" maxW="180px">
-        <Text fontFamily="custom" fontSize="6xl" mb={24} lineHeight='shorter' textAlign='center'>
+        <Text fontFamily="custom" fontSize="6xl" mb={18} lineHeight='shorter' textAlign='center'>
           {currentTitle}
          </Text>
           {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
