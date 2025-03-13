@@ -42,6 +42,7 @@ const TitleView = ({ doc }) => {
       <Button
         rightIcon={ 
         <img
+          alt='share icon'
           src="/share.svg"
           style={{ width: "20px", height: "20px" }}
         />}
@@ -56,6 +57,7 @@ const TitleView = ({ doc }) => {
       <Button
         rightIcon={ 
         <img
+          alt='mail icon'
           src="/mail.svg"
           style={{ width: "20px", height: "20px" }}
         />}
@@ -69,6 +71,7 @@ const TitleView = ({ doc }) => {
       </Button>
       <Button
         rightIcon={<img
+          alt='arrow icon'
           src="/arrow.svg"
           style={{ width: "20px", height: "20px" }}
         />}

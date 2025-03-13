@@ -90,6 +90,7 @@ const Layout = ({ children }) => {
           aria-label="Menu"
           bg='none'
           icon={<img
+            alt="menu-mobile"
             src="/menumobile.svg"
             style={{ width: "20px", height: "20px" }}
           />}
