@@ -40,7 +40,8 @@ const TitleView = ({ doc }) => {
       <Flex gap={4} width={{ base: "60%", md: "35%" }}
       flexDirection={{ base: "column", md: "row" }}>
       <Button
-        rightIcon={ 
+        rightIcon={
+        /* eslint-disable @next/next/no-img-element */
         <img
           alt='share icon'
           src="/share.svg"
@@ -56,6 +57,7 @@ const TitleView = ({ doc }) => {
       </Button>
       <Button
         rightIcon={ 
+        /* eslint-disable @next/next/no-img-element */
         <img
           alt='mail icon'
           src="/mail.svg"
@@ -70,7 +72,9 @@ const TitleView = ({ doc }) => {
         Contact
       </Button>
       <Button
-        rightIcon={<img
+        rightIcon={
+        /* eslint-disable @next/next/no-img-element */
+        <img
           alt='arrow icon'
           src="/arrow.svg"
           style={{ width: "20px", height: "20px" }}

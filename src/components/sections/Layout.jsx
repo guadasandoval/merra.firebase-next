@@ -1,7 +1,6 @@
 import { Avatar, Box, Grid, GridItem, VStack, Link, Text, IconButton } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { HamburgerIcon } from "@chakra-ui/icons";
 import { useState, useContext } from "react";
 import { Admin } from 'src/contexts/AdminContext';
 import { AddIcon } from '@chakra-ui/icons';
@@ -89,7 +88,9 @@ const Layout = ({ children }) => {
         <IconButton
           aria-label="Menu"
           bg='none'
-          icon={<img
+          icon={
+          /* eslint-disable @next/next/no-img-element */
+          <img
             alt="menu-mobile"
             src="/menumobile.svg"
             style={{ width: "20px", height: "20px" }}
@@ -176,6 +177,7 @@ const Layout = ({ children }) => {
             )
           )}
         </VStack>
+        {getRightOption(route)}
       </GridItem>
 
       {/* Contenido de componente */}
