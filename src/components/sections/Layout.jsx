@@ -1,9 +1,10 @@
-import { Box, Grid, GridItem, VStack, Link, Text, IconButton } from "@chakra-ui/react";
+import { Avatar, Box, Grid, GridItem, VStack, Link, Text, IconButton } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useState, useContext } from "react";
 import { Admin } from 'src/contexts/AdminContext';
+import { AddIcon } from '@chakra-ui/icons';
 
 
 const Layout = ({ children }) => {
