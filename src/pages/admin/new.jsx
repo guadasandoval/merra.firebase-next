@@ -22,4 +22,4 @@ function NewItem() {
   );
 }
 
-export default withAuth(NewItem);
+export default NewItem;

@@ -1,7 +1,6 @@
-import { POSTS } from 'src/services/foldersNames';
 import { getFolder as getFolderService } from '../services/firebase';
 
-const getSection = async (folder = POSTS) => {
+const getSection = async (folder) => {
   try {
     const data = [];
     const res = await getFolderService(folder);

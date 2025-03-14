@@ -1,4 +1,3 @@
-import { POSTS } from 'src/services/foldersNames';
 import {
   createItem as createItemService,
   updateItem as updateItemService,
@@ -6,16 +5,16 @@ import {
 import { uploadFiles } from '../services/storage';
 import { slugify } from './utils';
 
-const createDoc = async (values, folder = POSTS) => {
+const createDoc = async (values) => {
   try {
-    const { newFiles, title, deleteFiles, ...rest } = values;
-    let { id } = await createItemService(folder, {
+    const { newFiles, title, category, deleteFiles, ...rest } = values;
+    let { id } = await createItemService(category, {
       ...rest,
       title,
       url: slugify(title),
     });
     let files = await uploadFiles(newFiles, id);
-    await updateItemService(folder, {
+    await updateItemService(category, {
       id,
       files,
     });

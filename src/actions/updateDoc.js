@@ -1,4 +1,3 @@
-import { POSTS } from 'src/services/foldersNames';
 import { updateItem as updateItemService } from '../services/firebase';
 import {
   uploadFiles as uploadFilesService,
@@ -6,9 +5,10 @@ import {
 } from '../services/storage';
 import { slugify } from './utils';
 
-const updateDoc = async (values, folder = POSTS) => {
+const updateDoc = async (values) => {
   try {
-    const { id, newFiles, deleteFiles, files, title, ...rest } = values;
+    const { id, newFiles, deleteFiles, files, title, category, ...rest } =
+      values;
     let urls = [];
     if (newFiles.length > 0) {
       let uploadFiles = await uploadFilesService(newFiles, id);
@@ -17,7 +17,7 @@ const updateDoc = async (values, folder = POSTS) => {
     if (deleteFiles.length > 0) {
       await deleteFilesService(deleteFiles, id);
     }
-    await updateItemService(folder, {
+    await updateItemService(category, {
       id,
       ...rest,
       title,

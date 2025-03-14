@@ -2,9 +2,9 @@ import React from 'react';
 import getSection from 'src/actions/getSection';
 import GroupedPosts from 'src/components/sections/GroupedPosts';
 import { NextSeo } from 'next-seo';
-import { DESIGN } from 'src/services/foldersNames';
+import { ART } from 'src/services/foldersNames';
 
-const Design = ({ posts = [] }) => {
+const Art = ({ posts = [] }) => {
   return (
     <>
       <NextSeo title='Maria Muchut' defaultTitle='Maria Muchut' />
@@ -14,7 +14,7 @@ const Design = ({ posts = [] }) => {
 };
 
 export async function getStaticProps() {
-  const posts = await getSection(DESIGN);
+  const posts = await getSection(ART);
 
   return {
     props: {
@@ -24,4 +24,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Design;
+export default Art;

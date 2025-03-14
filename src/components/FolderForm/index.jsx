@@ -7,12 +7,16 @@ import {
   Button,
   Stack,
   Box,
+  Select,
 } from '@chakra-ui/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import dynamic from 'next/dynamic';
 import Tags from './Tags';
 import FileUpload from './FileUpload';
+import * as folders from '../../services/foldersNames';
+
+const allFolders = Object.values(folders);
 
 const Editor = dynamic(() => import('./Editor'), {
   ssr: false,
@@ -20,6 +24,7 @@ const Editor = dynamic(() => import('./Editor'), {
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('El titulo es requerido.'),
+  category: Yup.string().required('La categoria es requerida'),
 });
 
 const FolderForm = ({ loading, folder, onSubmit }) => {
@@ -43,6 +48,28 @@ const FolderForm = ({ loading, folder, onSubmit }) => {
         {({ values, errors, touched, setFieldValue, setFieldTouched }) => (
           <Form>
             <Stack gap={6}>
+              <FormControl isInvalid={errors.category && touched.category}>
+                <FormLabel fontSize='md' fontWeight={'bold'} htmlFor='category'>
+                  Categoria
+                </FormLabel>
+                <Field variant='filled' name='category'>
+                  {({ field }) => (
+                    <Select
+                      id='category'
+                      {...field}
+                      placeholder='Selecciona una categoria'
+                      onChange={(e) =>
+                        setFieldValue('category', e.target.value)
+                      }
+                    >
+                      {allFolders.map((f) => (
+                        <option value={f}>{f}</option>
+                      ))}
+                    </Select>
+                  )}
+                </Field>
+                <ErrorMessage name='category' component={FormErrorMessage} />
+              </FormControl>
               <FormControl isInvalid={errors.title && touched.title}>
                 <FormLabel fontSize='md' fontWeight={'bold'} htmlFor='title'>
                   Titulo
