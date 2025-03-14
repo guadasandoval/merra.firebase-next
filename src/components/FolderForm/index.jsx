@@ -63,7 +63,9 @@ const FolderForm = ({ loading, folder, onSubmit }) => {
                       }
                     >
                       {allFolders.map((f) => (
-                        <option value={f}>{f}</option>
+                        <option key={f} value={f}>
+                          {f}
+                        </option>
                       ))}
                     </Select>
                   )}

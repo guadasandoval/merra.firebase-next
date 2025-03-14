@@ -11,6 +11,7 @@ const createDoc = async (values) => {
     let { id } = await createItemService(category, {
       ...rest,
       title,
+      category,
       url: slugify(title),
     });
     let files = await uploadFiles(newFiles, id);

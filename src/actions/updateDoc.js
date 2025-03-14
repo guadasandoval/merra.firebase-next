@@ -21,6 +21,7 @@ const updateDoc = async (values) => {
       id,
       ...rest,
       title,
+      category,
       url: slugify(title),
       files: [...files, ...urls],
     });

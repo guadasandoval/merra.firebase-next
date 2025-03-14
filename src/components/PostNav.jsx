@@ -4,12 +4,14 @@ import { Admin } from 'src/contexts/AdminContext';
 import { useRouter } from 'next/router';
 
 const PostNav = ({ doc }) => {
-  const { url } = doc;
+  const { url, category } = doc;
   const { user, onDeletePost } = useContext(Admin);
   const router = useRouter();
 
   const onEdit = () => {
-    return router.push(`/admin/edit?title=${url}`);
+    return router.push(
+      `/admin/edit?${new URLSearchParams({ title: url, category })}`
+    );
   };
 
   if (!user) {

@@ -11,8 +11,8 @@ import { Box, Flex } from '@chakra-ui/layout';
 
 function Edit() {
   const router = useRouter();
-  const { title } = router.query;
-  const { data, loading } = useFetch(() => getDoc(title));
+  const { title, category } = router.query;
+  const { data, loading } = useFetch(() => getDoc(title, category));
   const { onUpdatePost } = useContext(Admin);
 
   return (
