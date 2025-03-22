@@ -65,8 +65,8 @@ const Layout = ({ children }) => {
 
   return (
     <Grid
-      templateRows={{ base: "auto 1fr", md: "1fr" }}
-      templateColumns={{ base: "1fr", md: "300px 1fr" }}
+      templateRows={{ base: "auto 1fr", lg: "1fr" }}
+      templateColumns={{ base: "1fr", lg: "300px 1fr" }}
       h="100vh"
     >
       {/* Header en mobile */}
@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
         paddingY={12}
         paddingX={6}
         h='80px'
-        display={{ base: "flex", md: "none" }}
+        display={{ base: "flex", lg: "none" }}
         alignItems="center"
         justifyContent="space-between"
         borderBottomWidth="6px"
@@ -95,7 +95,7 @@ const Layout = ({ children }) => {
             src="/menumobile.svg"
             style={{ width: "20px", height: "20px" }}
           />}
-          display={{ base: "block", md: "none" }}
+          display={{ base: "block", lg: "none" }}
           onClick={() => setIsMenuOpen(!isOpen)} // Toggle del menú
         />
       </GridItem>
@@ -118,7 +118,7 @@ const Layout = ({ children }) => {
           <VStack width="100%" maxW="168px" spacing='24px'>
             {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
               (section) => (
-                <NextLink key={section} href={`/${section.toLowerCase()}`} passHref>
+                <NextLink key={section} href={section.toLowerCase() === "home" ? "/" : `/${section.toLowerCase()}`} passHref>
                   <Link
                     padding= '16px 10px'
                     width="100%"
@@ -146,7 +146,7 @@ const Layout = ({ children }) => {
         as="nav"
         bg="pink.950"
         p={4}
-        display={{ base: "none", md: "flex" }}
+        display={{ base: "none", lg: "flex" }}
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
@@ -159,7 +159,7 @@ const Layout = ({ children }) => {
          </Text>
           {["Home", "Design", "Photo", "Video", "Art", "Writing", "About"].map(
             (section) => (
-              <NextLink key={section} href={`/${section.toLowerCase()}`} passHref>
+              <NextLink key={section} href={section.toLowerCase() === "home" ? "/" : `/${section.toLowerCase()}`} passHref>
                 <Link
                   p={4}
                   width="100%"

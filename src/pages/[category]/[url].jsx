@@ -31,8 +31,8 @@ const TitleView = ({ doc }) => {
       </Box>
       <Box
         display='flex'
-        flexDirection={{ base: 'column', md: 'row' }}
-        justifyContent={{ base: 'center', md: 'start' }}
+        flexDirection={{ base: 'column', lg: 'row' }}
+        justifyContent={{ base: 'center', lg: 'start' }}
         alignItems='center'
         gap={4}
         p={4}
@@ -40,8 +40,8 @@ const TitleView = ({ doc }) => {
       >
         <Flex
           gap={4}
-          width={{ base: '60%', md: '35%' }}
-          flexDirection={{ base: 'column', md: 'row' }}
+          width={{ base: '60%', lg: '35%' }}
+          flexDirection={{ base: 'column', lg: 'row' }}
         >
           <Button
             rightIcon={

@@ -3,6 +3,12 @@ import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
 const theme = extendTheme(
   {
+    breakpoints: {
+    sm: "30em", 
+    md: "48em", 
+    lg: "62em", 
+    xl: "80em",
+  },
     fonts: {
       heading: 'made-Black, sans-serif',
       body: 'SF-Pro-Text, sans-serif',

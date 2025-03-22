@@ -91,7 +91,7 @@ const Gallery = ({ files }) => {
 <Flex>
   <Box
     display="grid"
-    gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+    gridTemplateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
     gap={3}
     width="100%"
   >

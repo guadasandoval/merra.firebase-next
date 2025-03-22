@@ -39,7 +39,7 @@ const Post = ({ data }) => {
               left='0'
               width='100%'
               height='100%'
-              opacity={{ base: '1', md: '0' }}
+              opacity={{ base: '1', lg: '0' }}
               transition='opacity 0.3s ease-in-out'
               zIndex='1'
               display='flex'
@@ -62,7 +62,7 @@ const Post = ({ data }) => {
                 <Text
                   fontFamily={'made-Black'}
                   fontSize='36px'
-                  lineHeight={{ base: '60px', md: '36px' }}
+                  lineHeight={{ base: '60px', lg: '36px' }}
                 >
                   {title}
                 </Text>
