@@ -19,7 +19,7 @@ const Post = ({ data }) => {
 
   return (
     <LinkOverlay as={NextLink} href={`${category}/${url}`}>
-      <Flex flexDirection={'column'}>
+      <Flex flexDirection={'column'} cursor={'pointer'}>
         <AspectRatio ratio={3 / 4} overflow={'hidden'}>
           <Box position='relative' height='100%' width='100%'>
             <File

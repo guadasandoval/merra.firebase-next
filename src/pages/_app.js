@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import '@fontsource/poppins';
 import '@fontsource/open-sans';
 import { useRouter } from 'next/router';
@@ -15,7 +15,7 @@ import theme from '../theme';
 import { useBoolean } from '@chakra-ui/react';
 import Layout from 'src/components/sections/Layout';
 import HomeLayout from 'src/components/sections/HomeLayout';
-import "../styles/fonts.css";
+import '../styles/fonts.css';
 
 const heartKeyFrames = keyframes`
     0% {
@@ -42,18 +42,25 @@ const animation = `${heartKeyFrames}  1.2s infinite cubic-bezier(0.215, 0.61, 0.
 
 function MyApp({ Component, pageProps }) {
   const [loading, { on, off }] = useBoolean(false);
-  const { events } = useRouter();
   const router = useRouter();
-  const isHome = router.pathname === "/";
-  
+  const isHome = router.pathname === '/';
+
   useEffect(() => {
-    events.on('routeChangeStart', on);
-    events.on('routeChangeComplete', off);
-    events.on('routeChangeError', on);
+    const handleStart = on;
+    const handleStop = off;
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleStop);
+    router.events.on('routeChangeError', handleStop);
+
     return () => {
-      events.off('routeChangeComplete', off);
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleStop);
+      router.events.off('routeChangeError', handleStop);
     };
-  }, [events, on, off]);
+  }, [router]);
+
+  const LayoutComp = !isHome ? Layout : Fragment;
 
   return (
     <ChakraProvider theme={theme}>
@@ -69,16 +76,11 @@ function MyApp({ Component, pageProps }) {
             />
           </Center>
         ) : (
-          isHome ? (
-            <HomeLayout>
-              <Component {...pageProps} />
-            </HomeLayout>
-          ) : (
-          <Layout>
+          <LayoutComp>
             <Component {...pageProps} />
-          </Layout>)
+          </LayoutComp>
         )}
-      </AdminContext>  
+      </AdminContext>
     </ChakraProvider>
   );
 }
