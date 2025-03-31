@@ -43,7 +43,7 @@ const Post = ({ data }) => {
               transition='opacity 0.3s ease-in-out'
               zIndex='1'
               display='flex'
-              alignItems='end'
+              alignItems='center'
               _hover={{
                 opacity: 1,
               }}
@@ -61,8 +61,8 @@ const Post = ({ data }) => {
               >
                 <Text
                   fontFamily={'made-Black'}
-                  fontSize='36px'
-                  lineHeight={{ base: '60px', lg: '36px' }}
+                  fontSize={{ base: '40px',md:'80px', lg: '36px' }}
+                  lineHeight={{ base: '40px', lg: '36px' }}
                 >
                   {title}
                 </Text>

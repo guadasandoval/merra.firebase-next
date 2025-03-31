@@ -7,7 +7,9 @@ import {
   Fade,
   useDisclosure,
   Box,
-  AspectRatio
+  AspectRatio,
+  Grid,
+  GridItem
 } from '@chakra-ui/react';
 import File from './File';
 import useTouchDirection from 'src/hooks/useTouchDirection';
@@ -51,6 +53,9 @@ const Gallery = ({ files }) => {
     return size;
   };
 
+  const determineColumnSpan = ({ isVideo, landscape }) =>
+  isVideo || landscape ? 3 : 1; // Ocupa 3 columnas si es horizontal o video.
+
   /* Keys */
   function keyPress(e) {
     if (e.keyCode === 39 || e.keyCode === 40) {
@@ -67,16 +72,54 @@ const Gallery = ({ files }) => {
 
   return (
     <>
+       {/* Grilla de elementos */}
+       {/* <SimpleGrid columns={[1, 1, 3]} spacing={4}>
+        {files?.map((data, index) => (
+          <Box
+            key={`${data?.name}-${index}`}
+            cursor="pointer"
+            onClick={() => openGallery(index)}
+            bg="gray.100"
+            borderRadius="md"
+            overflow="hidden"
+          >
+            {data.isVideo ? (
+              <AspectRatio ratio={16 / 9}>
+                <Box as="video" src={data.src} autoPlay loop muted />
+              </AspectRatio>
+            ) : (
+              <Box as="img" src={data.src} alt={data.name} objectFit="cover" />
+            )}
+          </Box>
+        ))}
+      </SimpleGrid> */}
+
+
+  {/* Grilla de 3 columnas */}
+  {/* <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+        {files?.map((file, index) => (
+          <GridItem
+            key={`${file?.name}-${index}`}
+            colSpan={determineColumnSpan(file)} // Define el span de columnas
+            onClick={() => openGallery(index)}
+            cursor="pointer"
+          >
+            <File data={file} />
+          </GridItem>
+        ))}
+      </Grid> */}
+
+
       {/* <Flex gap={3} flexWrap={'wrap'}>
         {files?.map((data, index) => (
           <Flex
             key={`${data?.name}-${index}`}
             flexGrow={1}
             flexShrink={0}
-            // flexBasis={itemSize(data)}
-            // justifyContent={'start'}
-            // alignContent={'flex-start'}
-            // alignItems={'flex-start'}
+            flexBasis={itemSize(data)}
+            justifyContent={'start'}
+            alignContent={'flex-start'}
+            alignItems={'flex-start'}
             bg='pink'
           >
             <File
