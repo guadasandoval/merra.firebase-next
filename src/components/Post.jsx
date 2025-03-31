@@ -43,7 +43,7 @@ const Post = ({ data }) => {
               transition='opacity 0.3s ease-in-out'
               zIndex='1'
               display='flex'
-              alignItems='center'
+              alignItems='end'
               _hover={{
                 opacity: 1,
               }}
