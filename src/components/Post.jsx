@@ -62,9 +62,9 @@ const Post = ({ data }) => {
                 <Text
                   fontFamily={'made-Black'}
                   fontSize={{ base: '40px',md:'80px', lg: '36px' }}
-                  lineHeight={{ base: '40px', lg: '36px' }}
+                  lineHeight={{ base: '40px',md:'80px', lg: '36px' }}
                 >
-                  {title}
+                  {title.length > 30 ? `${title.substring(0, 40)}...` : title}
                 </Text>
               </Box>
             </Box>

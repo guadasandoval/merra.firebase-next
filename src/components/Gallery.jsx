@@ -7,7 +7,7 @@ import {
   Fade,
   useDisclosure,
   Box,
-  AspectRatio
+  AspectRatio,
 } from '@chakra-ui/react';
 import File from './File';
 import useTouchDirection from 'src/hooks/useTouchDirection';
@@ -90,7 +90,6 @@ const Gallery = ({ files }) => {
           </Flex>
         ))}
       </Flex> */}
-
 <Flex>
   <Box
     display="grid"

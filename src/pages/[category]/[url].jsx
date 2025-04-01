@@ -43,9 +43,8 @@ const TitleView = ({ doc }) => {
           width={{ base: '60%', lg: '35%' }}
           flexDirection={{ base: 'column', lg: 'row' }}
         >
-          <Button
+          {/* <Button
             rightIcon={
-              /* eslint-disable @next/next/no-img-element */
               <img
                 alt='share icon'
                 src='/share.svg'
@@ -59,7 +58,7 @@ const TitleView = ({ doc }) => {
             w='100%'
           >
             Share
-          </Button>
+          </Button> */}
           <Button
             rightIcon={
               /* eslint-disable @next/next/no-img-element */
@@ -74,6 +73,7 @@ const TitleView = ({ doc }) => {
             borderRadius='full'
             bg='#B9BBEE'
             w='100%'
+            onClick={() => window.location.href = "mailto:muchutmaria@gmail.com"}
           >
             Contact
           </Button>

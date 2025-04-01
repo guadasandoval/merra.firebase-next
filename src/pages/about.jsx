@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import { Text, Box } from '@chakra-ui/react';
 
 export default function About() {
@@ -13,29 +14,40 @@ export default function About() {
   >
     <Text mb={6} width={{base:'100%', lg:'80%'}}>
       Hello I am a{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Link href="/design" passHref>
+      <Box
+        as="span"
+        fontFamily="SF-Pro-Text-Bold"
+        p="2px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
+        marginBottom='6px'
       >
         designer
-      </span>{" "}
+      </Box></Link>{" "}
       & multidisciplinary{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Link href="/art" passHref>
+      <Box
+        as="span"
+        fontFamily="SF-Pro-Text-Bold"
+        p="1px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
       >
         artist
-      </span>{" "}
+      </Box></Link>{" "}
       based in Buenos Aires.
     </Text>
 
@@ -46,49 +58,64 @@ export default function About() {
 
     <Text mb={6} width={{base:'100%', lg:'80%'}}>
       During the pandemic I started{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Link href="/writing" passHref>
+      <Box
+        as="span"
+        fontFamily="SF-Pro-Text-Bold"
+        p="2px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
       >
         writing
-      </span>
+      </Box></Link>
       . My poems, essays and translations have been published worldwide.
     </Text>
 
     <Text mb={6} width={{base:'100%', lg:'80%'}}>
       I also{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Link href="/art" passHref>
+      <Box
+        as="span"
+        fontFamily="SF-Pro-Text-Bold"
+        p="2px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
       >
         paint
-      </span>{" "}
+      </Box></Link>{" "}
       in my free time. My work was shown in an art gallery for the first time this year!
     </Text>
 
     <Text mb={6} width={{base:'100%', lg:'80%'}}>
       I started my journey in{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Link href="/design" passHref>
+      <Box
+        as="span"
+        fontFamily="SF-Pro-Text-Bold"
+        p="2px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
       >
         UX/UI
-      </span>{" "}
+      </Box></Link>{" "}
       while working for a company that builds websites for various types of businesses.
     </Text>
 
@@ -98,17 +125,22 @@ export default function About() {
 
     <Text width={{base:'100%', lg:'80%'}}>
       If you’re interested in working with me, don’t hesitate to{" "}
-      <span
-        style={{
-          fontFamily:"SF-Pro-Text-Bold",
-          padding: "4px 10px",
-          backgroundColor: "#B9BBEE",
-          borderRadius: "12px",
-          border: "solid 1px"
-        }}
+      <Box
+        as="button"
+        fontFamily="SF-Pro-Text-Bold"
+        p="2px 8px"
+        bg="brand.25"
+        borderRadius="12px"
+        border="1px solid"
+        cursor="pointer"
+        transition="background-color 0.3s ease"
+        _hover={{ bg: "#B9BBEE" }}
+        display="inline-block"
+        textAlign="center"
+        onClick={() => window.location.href = "mailto:muchutmaria@gmail.com"}
       >
         contact me!
-      </span>
+      </Box>
     </Text>
   </Box>
   );
