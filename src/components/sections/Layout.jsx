@@ -100,8 +100,8 @@ const Layout = ({ children }) => {
             /* eslint-disable @next/next/no-img-element */
             <img
               alt='menu-mobile'
-              src='/menumobile.svg'
-              style={{ width: '20px', height: '20px' }}
+              src='/menu.png'
+              style={{ width: '32px', height: '32px' }}
             />
           }
           display={{ base: 'block', lg: 'none' }}
