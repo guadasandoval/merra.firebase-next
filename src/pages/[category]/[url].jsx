@@ -26,7 +26,6 @@ const TitleView = ({ doc }) => {
         <Gallery files={doc?.files} />
       </Box>
       <Box maxW={['100%', null, '80vw', '70%']}>
-        fo
         <TextParse text={doc?.description} />
       </Box>
       <Box
@@ -43,22 +42,6 @@ const TitleView = ({ doc }) => {
           width={{ base: '60%', lg: '35%' }}
           flexDirection={{ base: 'column', lg: 'row' }}
         >
-          {/* <Button
-            rightIcon={
-              <img
-                alt='share icon'
-                src='/share.svg'
-                style={{ width: '20px', height: '20px' }}
-              />
-            }
-            colorScheme='black'
-            variant='outline'
-            borderRadius='full'
-            bg='#B9BBEE'
-            w='100%'
-          >
-            Share
-          </Button> */}
           <Button
             rightIcon={
               /* eslint-disable @next/next/no-img-element */
@@ -73,26 +56,11 @@ const TitleView = ({ doc }) => {
             borderRadius='full'
             bg='#B9BBEE'
             w='100%'
-            onClick={() => window.location.href = "mailto:muchutmaria@gmail.com"}
+            onClick={() =>
+              (window.location.href = 'mailto:muchutmaria@gmail.com')
+            }
           >
             Contact
-          </Button>
-          <Button
-            rightIcon={
-              /* eslint-disable @next/next/no-img-element */
-              <img
-                alt='arrow icon'
-                src='/arrow.svg'
-                style={{ width: '20px', height: '20px' }}
-              />
-            }
-            colorScheme='black'
-            variant='outline'
-            borderRadius='full'
-            bg='#B9BBEE'
-            w='100%'
-          >
-            Next
           </Button>
         </Flex>
       </Box>
